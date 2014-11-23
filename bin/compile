@@ -41,7 +41,7 @@ function indent() {
 
 function run_npm() {
   command="$1"
-  
+
   [ ! -z $VERBOSE ] && command="--verbose $command"
 
   cd $BUILD_DIR
@@ -196,8 +196,8 @@ if [ -f $BUILD_DIR/grunt.js ] || [ -f $BUILD_DIR/Gruntfile.js ] || [ -f $BUILD_D
   # make sure that grunt and grunt-cli are installed locally
   run_npm "install grunt-cli"
   run_npm "install grunt"
-  echo "-----> Found Gruntfile, running grunt heroku:$NODE_ENV task"
-  $BUILD_DIR/node_modules/.bin/grunt heroku:$NODE_ENV
+  echo "-----> Found Gruntfile, running grunt heroku:build task"
+  $BUILD_DIR/node_modules/.bin/grunt heroku:build
 else
   echo "-----> No Gruntfile (grunt.js, Gruntfile.js, Gruntfile.coffee) found"
 fi
